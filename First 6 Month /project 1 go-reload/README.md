@@ -60,19 +60,20 @@ Check your formatted output in output.txt
 
 🧰 Functions Overview
 Function	Description
-to_decimal()	Converts hexadecimal or binary to decimal
 
-change_case()	Changes capitalization, upper or lower case
+to_decimal()	: Converts hexadecimal or binary to decimal
 
-a_an_case()	Fixes usage of “a” / “an” before vowels
+change_case()	: Changes capitalization, upper or lower case
 
-punctuations_modification()	Adds or removes spaces near punctuation marks
+a_an_case()	: Fixes usage of “a” / “an” before vowels
 
-qutation_modification()	Corrects spacing around single quotes
+punctuations_modification() :	Adds or removes spaces near punctuation marks
 
-space_mangment()	Removes unnecessary spaces
+qutation_modification() :	Corrects spacing around single quotes
 
-add_result_to_file()	Saves the final output text to a file
+space_mangment() :	Removes unnecessary spaces
+
+add_result_to_file() :	Saves the final output text to a file (but not used in project)
 
 🛠 Requirements
 
