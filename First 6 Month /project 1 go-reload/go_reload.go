@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	
 )
 
 func splid_input(str string) []string {
