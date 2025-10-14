@@ -61,12 +61,19 @@ Check your formatted output in output.txt
 🧰 Functions Overview
 Function	Description
 to_decimal()	Converts hexadecimal or binary to decimal
+
 change_case()	Changes capitalization, upper or lower case
+
 a_an_case()	Fixes usage of “a” / “an” before vowels
+
 punctuations_modification()	Adds or removes spaces near punctuation marks
+
 qutation_modification()	Corrects spacing around single quotes
+
 space_mangment()	Removes unnecessary spaces
+
 add_result_to_file()	Saves the final output text to a file
+
 🛠 Requirements
 
 Go 1.20 or newer
