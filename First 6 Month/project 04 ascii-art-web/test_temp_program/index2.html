@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ASCII Art Generator</title>
+  <style>
+    body { font-family: monospace, Arial; padding: 20px; background: #f9f9f9; }
+    form { margin-bottom: 18px; }
+    pre { background: #111; color: #eee; padding: 12px; white-space: pre; overflow-x: auto; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+  <h1>ASCII Art Generator</h1>
+
+  <form action="/ascii-art" method="POST">
+    <div>
+      <label for="text">Enter text:</label><br />
+      <input id="text" name="text" type="text" style="width:70%" value="{{ .Text }}" required />
+    </div>
+
+    <div style="margin-top:8px;">
+      <label>Select banner:</label>
+      <select name="banner">
+        <option value="standard" {{if eq .Banner "standard"}}selected{{end}}>standard</option>
+        <option value="shadow" {{if eq .Banner "shadow"}}selected{{end}}>shadow</option>
+        <option value="thinkertoy" {{if eq .Banner "thinkertoy"}}selected{{end}}>thinkertoy</option>
+      </select>
+    </div>
+
+    <div style="margin-top:12px;">
+      <button type="submit">Generate</button>
+    </div>
+  </form>
+
+  {{ if .Error }}
+    <div class="error">{{ .Error }}</div>
+  {{ end }}
+
+  {{ if .Result }}
+    <h2>Result</h2>
+    <pre>{{ .Result }}</pre>
+  {{ end }}
+
+</body>
+</html>
