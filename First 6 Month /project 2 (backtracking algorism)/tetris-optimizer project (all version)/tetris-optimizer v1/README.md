@@ -1,43 +1,47 @@
-🧩 Tetris Optimizer – Version 1 (Basic Backtracking)
-📌 Overview
+🧩 Tetris Optimizer (Go)
 
-This project is a basic Tetris optimizer written in Go, inspired by the 01-school tetris-optimizer problem.
+This project solves a Tetris packing problem using a backtracking algorithm.
+It reads tetromino shapes from a file and tries to fit all of them into the smallest possible square board.
+Each shape is labeled with a unique capital letter (A, B, C, …) and printed once a valid solution is found.
 
-The goal is to place a set of tetromino shapes into the smallest possible square board using a backtracking algorithm.
-
-This first version focuses on:
-
-Clean input parsing
-
-Simple backtracking placement
-
-Incrementally increasing board size
-
-No rotations (yet)
-
-🛠️ Features
+🚀 Features
 
 Reads tetromino shapes from a text file
 
-Assigns each shape a unique letter (A, B, C, ...)
+Supports both \n and \r\n line endings
 
-Uses backtracking to try all placements
+Automatically assigns letters to shapes
 
-Starts from a 4×4 board and increases size until a solution is found
+Uses backtracking to explore valid placements
 
-Prints the first valid solution
+Starts from a 4×4 board and grows if needed
 
-📂 Input Format
+Prints the first valid solution found
 
-Each shape is 4 lines
+🧩 Project Structure
+tetris-optimizer/
+│
+├── main.go          # Main program and solver
+├── sample.txt       # Example input file
+└── README.md        # This file
 
-# represents a block
+⚙️ How It Works
 
-. represents empty space
+Input parsing:
+The split_to_define_shape() function reads the file, splits shapes by blank lines, and converts # into letters.
 
-Shapes are separated by an empty line
+Board creation:
+The make_bord() function creates an empty square board filled with dots (.).
 
-Example input file:
+Backtracking solver:
+The solve_tetris() function tries to place each shape on the board.
+If placement fails, it removes the shape and tries another position.
+
+Board resizing:
+The solver starts with size 4 and increases the board size until a solution is found.
+
+🧪 Example Usage
+Example Input File (sample.txt)
 ...#
 ...#
 ...#
@@ -48,79 +52,60 @@ Example input file:
 ....
 ####
 
-.###
-...#
-....
-....
-
-▶️ How It Works
-
-The file is read and split into shapes
-
-Each # is replaced with a unique letter
-
-A square board is created and initialized with .
-
-Shapes are placed one by one using backtracking
-
-If placement fails, the algorithm backtracks
-
-The board size increases until a solution is found
-
-🚀 Usage
+Command
 go run main.go sample.txt
 
-🧠 Core Algorithm
-
-Backtracking
-
-Try every (x, y) position for each shape
-
-Check validity using bounds and collision detection
-
-Place → recurse → remove if failed
-
-Key functions:
-
-can_place
-
-place_shape
-
-remove_shape
-
-solve_tetris
-
-📌 Limitations (Version 1)
-
-❌ No shape rotations
-
-❌ No shape normalization (top-left alignment)
-
-❌ Only finds the first valid solution
-
-❌ Not optimized for speed
-
-These limitations are intentional and addressed in later versions.
-
-🧪 Example Output
+Output
 AABB
 A..B
 CCCB
 ....
 
-📈 Next Versions
+🧠 Algorithm
 
-Planned improvements in later versions:
+Backtracking
 
-Shape rotation handling
+Depth-first search
 
-Shape trimming / normalization
+Collision and boundary checking
 
-Reduced branching and optimizations
+Recursive placement and removal
 
-Faster solving for larger inputs
+Core functions:
 
-👨‍💻 Author
+can_place()
+
+place_shape()
+
+remove_shape()
+
+solve_tetris()
+
+🧱 Functions Overview
+Function	Description
+split_to_define_shape()	Parses the input file and builds shape data
+can_place()	Checks if a shape fits at a given position
+place_shape()	Places a shape on the board
+remove_shape()	Removes a shape during backtracking
+solve_tetris()	Recursive backtracking solver
+make_bord()	Creates an empty square board
+⚠️ Limitations
+
+No shape rotations
+
+No shape trimming
+
+No performance optimizations
+
+Stops at the first valid solution
+
+These are handled in later versions of the project.
+
+🧑‍💻 Author
 
 Tadros Selim
-Go | Algorithms | Backtracking | 01 Talent Program
+Built while practicing Go, algorithms, and backtracking techniques.
+
+📜 License
+
+This project is open-source and free to use for educational and non-commercial purposes.
