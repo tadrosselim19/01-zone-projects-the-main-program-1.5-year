@@ -89,6 +89,7 @@ place_shape()	Places a shape on the board
 remove_shape()	Removes a shape during backtracking
 solve_tetris()	Recursive backtracking solver
 make_bord()	Creates an empty square board
+
 ⚠️ Limitations
 
 No shape rotations
